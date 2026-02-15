@@ -35,10 +35,8 @@ The project consists of three main frontend services managed by a Gateway:
 2.  **Build and Launch:** Run the following command to build all modules and start the infrastructure:
 
     ```bash
-    (cd shell && npm run build) && \
-    (cd deals && npm run build) && \
-    (cd tasks && npm run build) && \
-    docker-compose up --build
+    npm install
+    npm run start:full - builds all applications and start infrastructure
     ```
 
 3.  **Local Access:**
