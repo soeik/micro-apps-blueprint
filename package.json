@@ -1,0 +1,13 @@
+{
+  "name": "micro-apps-poc",
+  "private": true,
+  "workspaces": [
+    "shell",
+    "deals",
+    "tasks"
+  ],
+  "scripts": {
+    "build:all": "npm run build --prefix shell && npm run build --prefix deals && npm run build --prefix tasks",
+    "start:full": "npm run build:all && docker-compose up --build"
+  }
+}

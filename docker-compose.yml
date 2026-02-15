@@ -1,0 +1,26 @@
+services:
+  gateway:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - shell
+      - deals
+      - tasks
+
+  shell:
+    build: ./shell
+    expose:
+      - "3000"
+
+  deals:
+    build: ./deals
+    expose:
+      - "3000"
+
+  tasks:
+    build: ./tasks
+    expose:
+      - "3000"

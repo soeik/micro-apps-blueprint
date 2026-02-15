@@ -1,0 +1,13 @@
+FROM nginx:stable-alpine
+
+RUN mkdir -p /usr/share/nginx/html/app/tasks
+
+COPY ./dist /usr/share/nginx/html/app/tasks
+
+RUN echo 'server { \
+    listen 80; \
+    location /app/tasks/ { \
+        root /usr/share/nginx/html; \
+        try_files $uri $uri/ /app/tasks/index.html; \
+    } \
+}' > /etc/nginx/conf.d/default.conf
